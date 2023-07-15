@@ -42,7 +42,8 @@
 							<input class="form-control" type="text" name="username" id="username" aria-describedby="user-helper user-helper-2 user-helper-3 user-helper-4" placeholder="Lu7841">
 
 							<p class="text-danger">
-								{{message.username_error is defined ? message.username_error : ''}}
+								{{message.username_unavailable is defined ? message.username_unavailable : ''}}
+								{{username_exception is defined ? username_exception : ''}}
 
 							</p>
 							<p id="user-helper" class="form-text text-dark pt-3">Le nom d'utilisateur doit suivre le format suivant :</p>
@@ -63,7 +64,8 @@
 							<input type="file" class="form-control" name="profile_image" id="profile-image" aria-describedby="file-helper">
 							<p id="file-helper" class="text-danger pt-3"></p>
 							<p class="text-danger" id="error-file">
-								{{message.file_error  is defined ? message.file_error : ''}}
+								{{file_exception is defined ? file_exception : ''}}
+
 							</p>
 
 						</div>
@@ -75,7 +77,9 @@
 							<label for="mail" class="form-label">Adresse email *</label>
 							<input type="email" class="form-control" name="mail" id="mail" placeholder="johndoe@example.fr">
 							<p class="text-danger" id="error-mail">
-								{{message.email_error is defined ? message.email_error : ''}}
+								{{message.email_unavailable is defined ? message.email_unavailable : ''}}
+								{{email_exception is defined ? email_exception : ''}}
+
 							</p>
 						</div>
 
@@ -86,7 +90,7 @@
 							<label for="password" class="form-label">Mot de passe *</label>
 							<input type="password" class="form-control" name="password" id="password" aria-describedby="password-helper password-helper-2 password-helper-3 password-helper-4">
 							<p class="text-danger" id="error-password">
-								{{message.password_error is defined ? message.password_error : ''}}
+								{{password_exception is defined ? password_exception : ''}}
 							</p>
 							<div class="check-password-box pt-3">
 
@@ -109,6 +113,7 @@
 			</form>
 		</div>
 	</div>
+	{% include "footer.twig" %}
 	<script src="../public/assets/js/seePassword.js"></script>
 {% endblock %}
 

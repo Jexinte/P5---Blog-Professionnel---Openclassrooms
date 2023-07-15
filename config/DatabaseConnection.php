@@ -2,16 +2,16 @@
 
 namespace Config;
 
+use PDO;
 use PDOException;
 
 
-class DatabaseConnection
+readonly class DatabaseConnection
 {
-  private $connect;
 
 
-  public function __construct(
-    private string $db_name,
+    public function __construct(
+    private string $dbName,
     private string $user,
     private string $password
   ) {
@@ -20,16 +20,16 @@ class DatabaseConnection
 
 
 
-  public function connect()
+  public function connect() : string|object
   {
 
 
     try {
-      $this->connect = new \PDO("mysql:host=localhost;dbname={$this->db_name}", "{$this->user}", "{$this->password}");
+      $connect = new PDO("mysql:host=localhost;dbname=$this->dbName", "$this->user", "$this->password");
     } catch (PDOException $e) {
-      "Database Error :" . $e->getMessage();
+      return "Database Error :" . $e->getMessage();
     }
 
-    return $this->connect;
+    return $connect;
   }
 }

@@ -2,11 +2,15 @@ header {
   padding-top: 2em;
   padding-inline: 1em;
 }
-
+.menu {
+  display: flex;
+  justify-content: space-between;
+}
 .menu ul {
   display: flex;
   justify-content: space-between;
   padding-left: 0;
+  gap: 1.5em;
 }
 
 .fa-solid {

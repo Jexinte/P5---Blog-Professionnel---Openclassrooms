@@ -19,8 +19,39 @@
 		<nav class="menu">
 			<a href="?selection=homepage"><img class="logo" src="../public/assets/images/logo.png" height="60" alt=""></a>
 			<ul>
-				<li><a href="?selection=sign_up"><i class="fa-solid fa-user-plus"></i></a></li>
-				<li><a href="?selection=sign_in"><i class="fa-solid fa-key"></i></a></li>
+
+
+				{% if session is defined and session.type_user is defined %}
+					<li>
+						<a href="?selection=profile">
+							<i class="fa-solid fa-user"></i>
+						</a>
+					</li>
+					<li>
+						<a href="?selection=notifications">
+							<i class="fa-solid fa-bell"></i>
+						</a>
+					</li>
+					<li>
+						<a href="?action=logout">
+							<i class="fa-solid fa-right-from-bracket"></i>
+						</a>
+					</li>
+
+				{% else %}
+					<li>
+						<a href="?selection=sign_in">
+							<i class="fa-solid fa-key"></i>
+						</a>
+					</li>
+					<li>
+						<a href="?selection=sign_up">
+							<i class="fa-solid fa-user-plus"></i>
+						</a>
+					</li>
+				{% endif %}
+
+
 			</ul>
 		</nav>
 	</header>
@@ -66,6 +97,15 @@
 
 			</div>
 		</div>
+
 	</div>
+	<script src="../public/assets/js/logoutConfirmation.js"></script>
+	{% if session is defined and session.type_user == "admin" %}
+		{% include "admin_footer.twig" %}
+	{% else %}
+
+		{% include "footer.twig" %}
+
+	{% endif %}
 {% endblock %}
 

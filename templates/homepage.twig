@@ -17,9 +17,16 @@
 	<div class="container-fluid mb-5" id="starter-block">
 		<header>
 			<nav class="menu">
+					<a href="?selection=blog"><i class="fa-solid fa-newspaper"></i></a>
 				<ul>
-					<li><a href="?selection=blog"><i class="fa-solid fa-newspaper"></i></a></li>
+				{% if session is defined and session.type_user == "admin" %}
+								<li><a href="?action=logout"><i class="fa-solid fa-right-from-bracket"></i></a></li>
+								{% else %}
 					<li><a href="?selection=sign_in"><i class="fa-solid fa-key"></i></a></li>
+									
+{% endif %}
+					
+	
 				</ul>
 			</nav>
 		</header>
@@ -76,33 +83,33 @@
 					<div class="mb-3 first-name-box">
 						<label for="firstname" class="form-label">Prénom</label>
 						<input class="form-control" type="text" name="firstname" id="firstname" placeholder="John">
-						<p id="firstname-error" class="error-message">{{message.firstname_error is defined ? message.firstname_error : ''}}</p>
+						<p id="firstname-error" class="error-message">{{firstname_exception is defined ? firstname_exception : ''}}</p>
 					</div>
 
 
 					<div class="mb-3 last-name-box">
 						<label for="lastname" class="form-label">Nom</label>
 						<input class="form-control" type="text" name="lastname" id="lastname" placeholder="Doe">
-						<p id="lastname-error" class="error-message">{{message.lastname_error is defined ? message.lastname_error : ''}}</p>
+						<p id="lastname-error" class="error-message">{{lastname_exception is defined ? lastname_exception : ''}}</p>
 					</div>
 
 
 					<div class="mb-3 mail-box">
 						<label for="mail" class="form-label">Adresse email</label>
 						<input class="form-control" type="email" name="mail" id="lastname" placeholder="johndoe@live.fr">
-						<p id="mail-error" class="error-message">{{message.email_error is defined ? message.email_error : ''}}</p>
+						<p id="mail-error" class="error-message">{{email_exception is defined ? email_exception : ''}}</p>
 					</div>
 
 					<div class="mb-3 subject-box">
 						<label for="mail" class="form-label">Objet</label>
 						<input class="form-control" type="text" name="subject" id="subject" placeholder="Collaboration">
-						<p id="subject-error" class="error-message">{{message.subject_error is defined ? message.subject_error : ''}}</p>
+						<p id="subject-error" class="error-message">{{subject_exception is defined ? subject_exception : ''}}</p>
 					</div>
 
 					<div class="mb-3 message-box">
 						<label for="message" class="form-label">Message</label>
 						<textarea class="form-control" name="message" id="lastname" placeholder="Votre message"></textarea>
-						<p id="message-error" class="error-message">{{message.message_error is defined ? message.message_error : ''}}</p>
+						<p id="message-error" class="error-message">{{content_message_exception is defined ? content_message_exception : ''}}</p>
 					</div>
 					<input class="btn btn-dark mt-4" id="submit" type="submit" value="Envoyer">
 					<p class="text-center" id="message-sent">{{message.message_sent is defined ? message.message_sent : ''}}</p>
@@ -131,5 +138,13 @@
 		</div>
 
 	</div>
-</div>{% endblock %}
+</div>
+	{% if session is defined and session.type_user == "admin" %}
+		{% include "admin_footer.twig" %}
+	{% else %}
+
+		{% include "footer.twig" %}
+
+	{% endif %}
+	{% endblock %}
 

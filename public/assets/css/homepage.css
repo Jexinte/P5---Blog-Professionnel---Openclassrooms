@@ -7,6 +7,12 @@ header {
   display: flex;
   justify-content: space-between;
   padding-left: 0;
+  gap:1em;
+}
+
+.menu {
+  display: flex;
+  justify-content: space-between;
 }
 
 .fa-solid {

@@ -64,11 +64,11 @@ class ComposerStaticInit109fbc80a3a8192711741efed149726e
         ),
         'Exceptions\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Class/Exceptions',
+            0 => __DIR__ . '/../..' . '/src/Exceptions',
         ),
         'Enumeration\\' => 
         array (
-            0 => __DIR__ . '/../..' . '/src/Class/Enumeration',
+            0 => __DIR__ . '/../..' . '/src/Enumeration',
         ),
         'Controller\\' => 
         array (

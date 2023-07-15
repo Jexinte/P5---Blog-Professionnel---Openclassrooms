@@ -17,8 +17,8 @@ class UserModel
   ) {
   }
 
-  public function getData() : array
+  public function getData(): array
   {
-    return ["username" => $this->username,"profileImage" => $this->profileImage,"email" => $this->email , "password" => $this->password];
+    return ["username" => $this->username, "profileImage" => $this->profileImage, "email" => $this->email, "password" => $this->password];
   }
 }

@@ -48,6 +48,7 @@
 						<input type="email" class="form-control" name="mail" id="mail" placeholder="johndoe@example.fr">
 
 						<p class="text-danger error-mail">{{message.email_error is defined ? message.email_error : ''}}</p>
+						<p class="text-danger error-mail">{{email_exception is defined ? email_exception : ''}}</p>
 					</div>
 
 
@@ -56,6 +57,7 @@
 						<input type="password" class="form-control" name="password" id="password">
 
 						<p class="text-danger error-password">{{message.password_error is defined ? message.password_error : ''}}</p>
+						<p class="text-danger error-password">{{password_exception is defined ? password_exception : ''}}</p>
 					</div>
 
 
@@ -67,6 +69,6 @@
 			</div>
 		</form>
 	</div>
-
+	{% include "footer.twig" %}
 {% endblock %}
 

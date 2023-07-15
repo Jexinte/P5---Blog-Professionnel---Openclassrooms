@@ -19,26 +19,26 @@
 	{% include "menu_admin.twig" %}
 
 	<div class="container-fluid" id="article">
-					{% for data in article %}
-		<img class="article-banner" src="{{data.image}}" alt="Climbing to the top">
-		<div class="row">
-			<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 article">
-				<article>
-					<div class="author-box">
+		{% for data in article %}
+			<img class="article-banner" src="{{data.image}}" alt="Climbing to the top">
+			<div class="row">
+				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 article">
+					<article>
+						<div class="author-box">
 							<img class="author-img" src="{{data.author_image}}" alt="avatar author1">
-						<h2 class="author-name">{{data.author}}</h2>
-					</div>
+							<h2 class="author-name">{{data.author}}</h2>
+						</div>
 
-					<h1 class="article-title" id="h1">{{data.title}}</h1>
-					<p class="article-short-phrase">{{data.short_phrase}}</p>
-					<p class="article-content">{{data.content|nl2br }}</p>
-					<ul class="tags">
-						<li class="tag">{{data.tags}}</li>
-					</ul>
-					<p class="article-date">{{data.date_of_publication}}</p>
-				</article>
-					{% endfor %}
-					
+						<h1 class="article-title" id="h1">{{data.title}}</h1>
+						<p class="article-short-phrase">{{data.short_phrase}}</p>
+						<p class="article-content">{{data.content|nl2br }}</p>
+						<ul class="tags">
+							<li class="tag">{{data.tags}}</li>
+						</ul>
+						<p class="article-date">{{data.date_of_publication}}</p>
+					</article>
+				{% endfor %}
+
 			</div>
 		</div>
 	</div>

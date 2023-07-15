@@ -9,16 +9,29 @@
 	<title>Accueil Administration - Blog professionnel</title>
 {% endblock %}
 {% block css_page %}
-	<link rel="stylesheet" href="../src/admin/assets/css/admin_homepage.css">
+	<link rel="stylesheet" href="../public/assets/css/admin_homepage.css">
 {% endblock %}
 
 {% block content %}
 	<header>
 		<nav class="menu">
+			<a href="?selection=blog">
+				<i class="fa-solid fa-newspaper"></i>
+			</a>
 			<ul>
-				<li><a href="selection=blog"><i class="fa-solid fa-newspaper"></i></a></li>
+				<li>
+					<a href="?selection=add_article">
+						<i class="fa-solid fa-plus"></i>
+					</a>
+				</li>
+				{% if session is defined and session.type_user == "admin" %}
+					<li>
+						<a href="action=log_out">
+							<i class="fa-solid fa-right-from-bracket"></i>
+						</a>
+					</li>
+				{% endif %}
 
-				<li><a href="?selection=add_article"><i class="fa-solid fa-plus"></i></a></li>
 			</ul>
 		</nav>
 	</header>
@@ -27,7 +40,7 @@
 	<div class="container-fluid" id="homepage">
 
 		<div class="container-fluid" id="banner">
-			<img class="banner-img" src="../src/admin/assets/images/admin_homepage.jpg" alt="admin homepage banner">
+			<img class="banner-img" src="../public/assets/images/admin_homepage.jpg" alt="admin homepage banner">
 		</div>
 
 		<h1 id="h1">Bienvenue,  Administrateur</h1>
@@ -69,7 +82,7 @@
 							<h4>CyranoB , le 19 juin 2023</h4>
 							<p>
 								C'est un roc !... c'est un pic... c'est un cap !
-																																																Que dis-je, c'est un cap ?... C'est une péninsule ! »</p>
+																																																								Que dis-je, c'est un cap ?... C'est une péninsule ! »</p>
 						</div>
 					</a>
 				</div>
@@ -132,5 +145,12 @@
 		</div>
 
 	</div>
+	{% if session is defined and session.type_user == "admin" %}
+		{% include "admin_footer.twig" %}
+	{% else %}
+
+		{% include "footer.twig" %}
+
+	{% endif %}
 {% endblock %}
 

@@ -8,11 +8,11 @@
 {% block title %}
 
 	<title>Ajouter un article - Administration - Blog professionnel
-		{# Il faudra remplacer par le nom de l'article #}
+
 	</title>
 {% endblock %}
 {% block css_page %}
-	<link rel="stylesheet" href="../src/admin/assets/css/admin_add_article.css">
+	<link rel="stylesheet" href="../public/assets/css/admin_add_article.css">
 {% endblock %}
 
 {% block content %}
@@ -21,7 +21,7 @@
 	<div class="container-fluid" id="article">
 
 		<div class="container-fluid" id="banner">
-			<img src="../src/admin/assets/images/banner_add_update_article.jpg" alt="">
+			<img src="../public/assets/images/banner_add_update_article.jpg" alt="">
 		</div>
 
 		<div class="container-fluid" id="form">
@@ -32,50 +32,42 @@
 			</div>
 
 
-			<form id="form" class="pt-3" action="#" method="post">
+			<form id="form" class="pt-3" action="?action=add_article" method="post" enctype="multipart/form-data">
 				<div class="row">
 					<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 form-box">
-						<div class="mb-3">
-							<label for="author" class="form-label">Auteur *</label>
-							<input class="form-control" type="text" name="author" id="author" aria-describedby="" placeholder="John42">
-							<p class="text-danger error" id="error-author"></p>
-						</div>
+
 
 						<div class="mb-3">
 							<label for="title" class="form-label">Titre *</label>
 							<input class="form-control" type="text" name="title" id="title" aria-describedby="" placeholder="Les péons de l'univers">
-							<p class="text-danger error" id="error-title"></p>
+							<p class="text-danger error" id="error-title">{{title_exception is defined ? title_exception : ''}}</p>
 						</div>
 
 						<div class="mb-3">
-							<label for="image-file" class="form-label">Image *</label>
-							<input class="form-control" type="file" name="image-file" id="image-file" onchange="displayImagePreview(this)">
-							<p class="text-danger error" id="error-image-article"></p>
+							<label for="image_file" class="form-label">Image *</label>
+							<input class="form-control" type="file" name="image_file" id="image-file" onchange="displayImagePreview(this)">
+							<p class="text-danger error" id="error-image-article">{{file_exception is defined ? file_exception : ''}}</p>
 						</div>
 
 						<div class="mb-3">
 							<label for="short-phrase" class="form-label">Chapô *</label>
 							<input class="form-control" type="text" name="short-phrase" id="short-phrase" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum necessitatibus dolorem">
-							<p class="text-danger error" id="error-image-article"></p>
+							<p class="text-danger error" id="error-short-phrase-article">{{short_phrase_exception is defined ? short_phrase_exception : ''}}</p>
 						</div>
 
 						<div class="mb-3">
 							<label for="content" class="form-label">Contenu *</label>
 							<textarea class="form-control" type="text" name="content" id="content" placeholder="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum necessitatibus dolorem"></textarea>
-							<p class="text-danger error" id="error-image-article"></p>
+							<p class="text-danger error" id="error-content-article">{{content_article_exception is defined ? content_article_exception : ''}}</p>
 						</div>
 
 						<div class="mb-3">
 							<label for="tags" class="form-label">Tags</label>
 							<input class="form-control" type="text" name="tags" id="tags" placeholder="#Php #BonnesPratiques #Test">
-							<p class="text-danger error" id="error-tags"></p>
+							<p class="text-danger error" id="error-tags-article">{{tags_exception is defined ? tags_exception : ''}}</p>
 						</div>
 
-						<div class="mb-3">
-							<label for="date-of-creation" class="form-label">Date de création</label>
-							<input class="form-control" type="date" name="date-of-creation" id="date-of-creation">
-							<p class="text-danger error" id="error-date-of-creation"></p>
-						</div>
+
 						<input class="btn btn-dark" type="submit" name="submit" value="Envoyer">
 					</div>
 				</div>
@@ -87,7 +79,7 @@
 			<div class="row">
 
 				<div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 preview-box">
-					<img src="" id="img-preview">
+					<img id="img-preview">
 					<h2 id="title-preview"></h2>
 					<p id="short-phrase-preview"></p>
 					<p id="content-preview"></p>
@@ -96,6 +88,13 @@
 			</div>
 		</div>
 	</div>
-	<script src="../src/admin/assets/js/article_live_preview.js"></script>
+	<script src="../public/assets/js/article_live_preview.js"></script>
+	{% if session is defined and session.type_user == "admin" %}
+		{% include "admin_footer.twig" %}
+	{% else %}
+
+		{% include "footer.twig" %}
+
+	{% endif %}
 {% endblock %}
 

@@ -4,3 +4,4 @@ config/config.json
 vendor
 uploads
 stmp_credentials.json
+notes.md

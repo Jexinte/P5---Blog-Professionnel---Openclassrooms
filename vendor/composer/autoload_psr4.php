@@ -11,8 +11,8 @@ return array(
     'Symfony\\Polyfill\\Ctype\\' => array($vendorDir . '/symfony/polyfill-ctype'),
     'PHPMailer\\PHPMailer\\' => array($vendorDir . '/phpmailer/phpmailer/src'),
     'Model\\' => array($baseDir . '/src/Model'),
-    'Exceptions\\' => array($baseDir . '/src/Class/Exceptions'),
-    'Enumeration\\' => array($baseDir . '/src/Class/Enumeration'),
+    'Exceptions\\' => array($baseDir . '/src/Exceptions'),
+    'Enumeration\\' => array($baseDir . '/src/Enumeration'),
     'Controller\\' => array($baseDir . '/src/Controller'),
     'Config\\' => array($baseDir . '/config'),
 );

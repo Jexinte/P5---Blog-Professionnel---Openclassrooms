@@ -3,7 +3,7 @@
         'name' => 'dev/blog_professionnel',
         'pretty_version' => 'dev-main',
         'version' => 'dev-main',
-        'reference' => '247961077c9f35f64e8c07c7995599c97a626dab',
+        'reference' => '040285952ab32294bafbbd5f6799ee3bc38d0c34',
         'type' => 'library',
         'install_path' => __DIR__ . '/../../',
         'aliases' => array(),
@@ -13,7 +13,7 @@
         'dev/blog_professionnel' => array(
             'pretty_version' => 'dev-main',
             'version' => 'dev-main',
-            'reference' => '247961077c9f35f64e8c07c7995599c97a626dab',
+            'reference' => '040285952ab32294bafbbd5f6799ee3bc38d0c34',
             'type' => 'library',
             'install_path' => __DIR__ . '/../../',
             'aliases' => array(),
